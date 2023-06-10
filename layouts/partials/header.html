@@ -1,0 +1,22 @@
+<header class='site-header'>
+	<div class="container">
+		<div class="site-title">
+			<img class="logo" src="{{ .Site.Params.logo }}" alt="{{ .Site.Title }}">
+		</div>
+	</div>
+
+	<div class="site-masthead">
+		<div class="container">
+		  <nav class="nav">
+			{{ range .Site.Menus.main }}
+			<a class="nav-link" href="{{ .URL }}">
+			{{ if .Pre }}
+			{{ end }}
+			{{ $text := print .Name | safeHTML }}
+			{{ $text }}
+			</a>
+			{{ end }}
+		  </nav>
+		</div>
+	</div>
+</header>

@@ -1,0 +1,34 @@
+<div class='metadata'>
+	{{ with .Date }}
+		<i class="fa-solid fa-calendar-days"></i>
+	  {{ . | time.Format ":date_long" }}
+	{{ end }}
+
+	{{ with .PublishDate }}
+		<i class="fa-solid fa-calendar-days"></i>
+	  {{ . | time.Format ":date_long" }}
+	{{ end }}
+
+	{{ with .Params.author }}
+	·
+	<i class="fa-solid fa-pen"></i>
+	<a class="btn btn-sm btn-outline-dark category-btn">{{ . }}</a>
+	{{ end }}
+
+	{{ with .Params.categories }}
+	{{ range . }}
+	{{ $href := print (absURL "categories/") (urlize .) }}
+	·
+	<i class="fa-solid fa-box-archive"></i>
+	<a class="btn btn-sm btn-outline-dark category-btn" href="{{ $href }}">{{ . }}</a>
+	{{ end }}
+	{{ end }}
+	{{ with .Params.tags }}
+	{{ range . }}
+	{{ $href := print (absURL "tags/") (urlize .) }}
+	·
+	<i class="fa-solid fa-tags"></i>
+	<a class="btn btn-sm btn-outline-dark tag-btn" href="{{ $href }}">{{ . }}</a>
+	{{ end }}
+	{{ end }}
+</div>

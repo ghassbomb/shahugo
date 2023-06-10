@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="site-post">
+    <h1 class="site-post-title">Welcome!</h1>
+    <p class="site-post-meta"></p>
+    <div id="content">
+		<p> {{ $.Site.Params.Description }} </p>
+        <h2>Writings</h2>
+        <div class="outline-text" id="outline-text-1">
+		  {{ range first 5 (where .Site.RegularPages "Section" "posts") }}
+			  <a href="{{ .Permalink }}">{{ .Title }}</a>
+				·
+			  <span>{{ .Date.Format "January 2, 2006" }}</span>
+			  <br>
+		  {{ end }}
+		</div>
+        <h2>Projects</h2>
+        <div class="outline-text" id="outline-text-2">
+			{{ range .Site.Params.projects.list }}
+			  <div class="project-item">
+				<strong><a href="{{ .href }}">{{ .title }}</a></strong>
+				<br>
+				<span>{{ .description }}</span>
+			  </div>
+			{{ end }}
+		</div>
+        <h2>Contact Me</h2>
+        <div class="outline-text" id="outline-text-2">
+			{{ range .Site.Params.social }}
+				<a style="text-decoration: none;" href="{{ .link }}" target="_blank">
+					<i class="{{ .icon }}"></i>
+				</a>
+			{{ end }}
+		</div>
+    </div>
+</div>
+{{ end }}
