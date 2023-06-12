@@ -2,11 +2,17 @@ name = "Shahugo"
 license = "MIT"
 licenselink = "https://github.com/ghassbomb/shahugo/blob/master/LICENSE"
 description = "My own Hugo blogging theme."
-homepage = "http://ghassbomb.github.io"
-tags = [blogging]
-features = [blogging]
+homepage = "http://github.com/ghassbomb/shahugo"
+tags = []
+features = []
 min_version = "0.41.0"
 
 [author]
   name = "Ghassan Shahzad"
   homepage = "https://ghassbomb.github.io"
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = ""
+  repo = ""
