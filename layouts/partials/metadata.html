@@ -16,19 +16,32 @@
 	{{ end }}
 
 	{{ with .Params.categories }}
-	{{ range . }}
-	{{ $href := print (absURL "categories/") (urlize .) }}
+	{{ $categoryCount := len . }}
 	·
 	<i class="fa-solid fa-box-archive"></i>
-	<a class="btn btn-sm btn-outline-dark category-btn" href="{{ $href }}">{{ . }}</a>
+	{{ range $index, $category := . }}
+	{{ $href := print (absURL "categories/") (urlize $category) }}
+	
+	{{ if and (gt $categoryCount 1) (not (eq $index (sub $categoryCount 1))) }}
+		<a class="btn btn-sm btn-outline-dark category-btn" href="{{ $href }}">{{ . }}</a>,
+	{{ else }}
+		<a class="btn btn-sm btn-outline-dark category-btn" href="{{ $href }}">{{ . }}</a>
 	{{ end }}
 	{{ end }}
+	{{ end }}
+
 	{{ with .Params.tags }}
-	{{ range . }}
-	{{ $href := print (absURL "tags/") (urlize .) }}
+	{{ $tagCount := len . }}
 	·
 	<i class="fa-solid fa-tags"></i>
-	<a class="btn btn-sm btn-outline-dark tag-btn" href="{{ $href }}">{{ . }}</a>
+	{{ range $index, $tag := . }}
+	{{ $href := print (absURL "tags/") (urlize $tag) }}
+	
+	{{ if and (gt $tagCount 1) (not (eq $index (sub $tagCount 1))) }}
+		<a class="btn btn-sm btn-outline-dark tag-btn" href="{{ $href }}">{{ . }}</a>,
+	{{ else }}
+		<a class="btn btn-sm btn-outline-dark tag-btn" href="{{ $href }}">{{ . }}</a>
 	{{ end }}
 	{{ end }}
+	{{ end }}	
 </div>

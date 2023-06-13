@@ -27,7 +27,7 @@
         <div class="outline-text" id="outline-text-2">
 			{{ range .Site.Params.social }}
 				<a style="text-decoration: none;" href="{{ .link }}" target="_blank">
-					<i class="{{ .icon }}"></i>
+					<i title="{{ .name }}" class="{{ .icon }}" style="font-size: 26px;"></i>
 				</a>
 			{{ end }}
 		</div>
