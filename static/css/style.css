@@ -196,7 +196,10 @@ pre, code {
 strong {
   font-weight: 700;
 }
-/* * Override Bootstrap's default container. */
+ul {
+  margin-top: 10px;
+  margin-bottom: ;
+}
 .container {
   max-width: 60rem;
 }
@@ -360,6 +363,4 @@ strong {
   background-color: var(--color-primary);
   color: var(--color-background);
 }
-li{
-	margin-bottom: 20px;
-}
+
